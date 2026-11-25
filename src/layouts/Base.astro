@@ -72,6 +72,9 @@ const isCurrent = (href: string) => here === href || (href !== '/' && here === h
     </footer>
 
     <script is:inline>
+      const header = document.querySelector('.site-header');
+      const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 30);
+      onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
       const b = document.querySelector('.menu-btn'), n = document.getElementById('nav');
       b.addEventListener('click', () => { const o = n.classList.toggle('open'); b.setAttribute('aria-expanded', o); });
     </script>
