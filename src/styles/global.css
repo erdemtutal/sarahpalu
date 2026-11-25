@@ -63,6 +63,7 @@ p { margin: 0 0 1.2em; }
 .hero { position: relative; background-size: cover; background-position: center; color: #fff; display: flex; align-items: center; }
 .hero.tall { min-height: 100vh; }
 .hero.mid { min-height: 500px; padding-top: 88px; }
+.hero.mid::before { content: ''; position: absolute; inset: 0; background: rgba(40, 20, 10, .32); }
 .hero.band { height: 190px; background: linear-gradient(180deg, var(--taupe) 0%, #fff 100%); }
 .hero > .inner { width: 100%; }
 .hero-title {
