@@ -28,6 +28,13 @@ npm run build    # writes the site to dist/
 - Fonts are self-hosted via `@fontsource`. The old site's custom heading font ("Birdseye") was not copied; Nunito Sans is the stand-in for body text.
 - Blog and store are not built yet. Ikivirta links to Bandcamp.
 
-## Deploying (Cloudflare Pages)
+## Deploying (GitHub Pages)
 
-Connect this repo, framework preset **Astro**, build command `npm run build`, output directory `dist`.
+The site deploys with `.github/workflows/deploy.yml` on every push to `main`, and every morning (so the calendar stays current).
+
+One-time setup:
+1. In the repo, go to **Settings > Pages** and set **Source** to **GitHub Actions**.
+2. Merge to `main`. The first deploy appears at `https://erdemtutal.github.io/sarahpalu/` (links and images will look broken there, because the site expects to live at the domain root; that is normal until the domain is connected).
+3. When ready to go live, follow the domain steps in the migration plan (`www.sarahpalu.com` is set in `public/CNAME`). Then tick **Enforce HTTPS** in Settings > Pages.
+
+Pull requests run `.github/workflows/check.yml`, which just makes sure the site builds.
