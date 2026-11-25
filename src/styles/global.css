@@ -28,7 +28,7 @@ p { margin: 0 0 1.2em; }
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
 .justify p { text-align: justify; }
 .credit { font-size: .75rem; color: #888; }
-.credits { margin-top: 4rem; padding-top: 1.6rem; border-top: 1px solid rgba(0,0,0,.18); }
+.credits { text-align: right; margin-top: 4rem; padding-top: 1.6rem; border-top: 1px solid rgba(0,0,0,.18); }
 .center { text-align: center; }
 .spaced { letter-spacing: .25em; text-transform: uppercase; font-family: var(--font-head); }
 .btn {
