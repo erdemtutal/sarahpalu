@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 import Base from '../layouts/Base.astro';
 import events from '../data/calendar.json';
 // Events are split into upcoming / past at BUILD time using each event's end date.
@@ -20,7 +21,7 @@ const past = events.filter((e) => e.date < today).sort((a, b) => b.date.localeCo
         <p>etc.</p>
       </div>
       <div>
-        <img src="/images/ed8a4349-recovered-1_orig.jpg" alt="Sarah Palu" width="800" height="1200" loading="lazy" />
+        <img src={u("/images/ed8a4349-recovered-1_orig.jpg")} alt="Sarah Palu" width="800" height="1200" loading="lazy" />
         <p class="credit" style="margin-top:.6rem">Picture by <strong>Iiris Heikka</strong></p>
       </div>
     </div>

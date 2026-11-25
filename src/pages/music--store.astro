@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 import Base from '../layouts/Base.astro';
 const albums = [
   ['Viitasen Piia', 'Ihmisen aika', '7muyvm7DBm5sZHG1SvKQVI'],
@@ -53,7 +54,7 @@ const albums = [
       <div>
         <h3>HOMEBOUND – Awarded short film by Marika Harjusaari</h3>
         <p>Film score: Sarah Palu &amp; Matias Tyni</p>
-        <a href="https://areena.yle.fi/1-4253754" rel="noopener"><img src="/images/screenshot-2020-04-13-at-10-40-12.png" alt="Homebound on Yle Areena" width="743" height="379" loading="lazy" /></a>
+        <a href="https://areena.yle.fi/1-4253754" rel="noopener"><img src={u("/images/screenshot-2020-04-13-at-10-40-12.png")} alt="Homebound on Yle Areena" width="743" height="379" loading="lazy" /></a>
         <p style="margin-top:1rem"><a class="btn" href="https://areena.yle.fi/1-4253754" rel="noopener">Watch on Yle Areena</a></p>
       </div>
     </div>
@@ -64,7 +65,7 @@ const albums = [
     <div class="two-col" style="margin-top:2rem">
       <div>
         <h3>Viitasen Piia band on YLE Olohuone</h3>
-        <a href="https://areena.yle.fi/1-50506030" rel="noopener"><img src="/images/img-0921.jpg" alt="Viitasen Piia on YLE Olohuone" width="754" height="425" loading="lazy" /></a>
+        <a href="https://areena.yle.fi/1-50506030" rel="noopener"><img src={u("/images/img-0921.jpg")} alt="Viitasen Piia on YLE Olohuone" width="754" height="425" loading="lazy" /></a>
         <p style="margin-top:1rem"><a class="btn" href="https://areena.yle.fi/1-50506030" rel="noopener">Watch on Yle Areena</a></p>
       </div>
       <div>

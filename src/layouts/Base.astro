@@ -8,6 +8,7 @@ import '@fontsource/playfair-display/700-italic.css';
 import '@fontsource/playfair-display/400.css';
 import '@fontsource-variable/nunito-sans';
 import '../styles/global.css';
+import { u, baseUrl } from '../lib/url';
 
 interface Props {
   title?: string;
@@ -26,7 +27,7 @@ const nav = [
   ['Home', '/'], ['Bio', '/bio.html'], ['Music & Store', '/music--store.html'],
   ['Calendar', '/calendar.html'], ['Contact', '/contact.html'], ['Gallery', '/gallery.html'],
 ];
-const here = Astro.url.pathname.replace(/\/index\.html$/, '/');
+const here = (Astro.url.pathname.slice(baseUrl.length) || '/').replace(/\/index\.html$/, '/');
 const isCurrent = (href: string) => here === href || (href !== '/' && here === href.replace('.html', ''));
 ---
 <!doctype html>
@@ -41,16 +42,16 @@ const isCurrent = (href: string) => here === href || (href !== '/' && here === h
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL(image, Astro.site).toString()} />
+    <meta property="og:image" content={new URL(u(image), Astro.site).toString()} />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body class={cream ? 'cream' : ''}>
     <header class="site-header">
       <div class="bar">
-        <a class="logo" href="/">{site}</a>
+        <a class="logo" href={u('/')}>{site}</a>
         <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
         <nav class="nav" id="nav" aria-label="Main">
-          {nav.map(([label, href]) => <a href={href} aria-current={isCurrent(href) ? 'page' : undefined}>{label}</a>)}
+          {nav.map(([label, href]) => <a href={u(href)} aria-current={isCurrent(href) ? 'page' : undefined}>{label}</a>)}
         </nav>
       </div>
     </header>

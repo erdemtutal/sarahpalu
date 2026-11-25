@@ -1,10 +1,11 @@
 ---
+import { u } from '../lib/url';
 import Base from '../layouts/Base.astro';
 ---
 <Base title="Ensembles" description="OON is a co-creation by Sarah Palu and Johanna Tarkkanen. They met in 2016 and sat down together to listen to the silence. From that silence music started to unfold like water from a spring. #kantelemeditation">
   <section class="section wrap">
     <div class="two-col">
-      <img src="/images/image1_1.jpeg" alt="OON kantele" width="748" height="921" loading="lazy" />
+      <img src={u("/images/image1_1.jpeg")} alt="OON kantele" width="748" height="921" loading="lazy" />
       <div class="justify">
         <h2>OON</h2>
         <p><strong>OON</strong> is a co-creation by Sarah Palu and Johanna Tarkkanen. They met in 2016 and sat down together to listen to the silence. From that silence music started to unfold like water from a spring. This music is the essence of OON.</p>
@@ -18,8 +19,8 @@ import Base from '../layouts/Base.astro';
 
     <div class="two-col flip">
       <div>
-        <img src="/images/img-2771_orig.jpg" alt="Viitasen Piia" width="1000" height="667" loading="lazy" />
-        <p style="margin-top:1rem"><a class="btn" href="/music--store.html">Listen</a></p>
+        <img src={u("/images/img-2771_orig.jpg")} alt="Viitasen Piia" width="1000" height="667" loading="lazy" />
+        <p style="margin-top:1rem"><a class="btn" href={u("/music--store.html")}>Listen</a></p>
       </div>
       <div class="justify">
         <h2>VIITASEN PIIA</h2>
@@ -35,8 +36,8 @@ import Base from '../layouts/Base.astro';
 
     <div class="two-col">
       <div>
-        <img src="/images/img-3313_1_orig.jpg" alt="Project Vainiolla Ensemble" width="1000" height="671" loading="lazy" />
-        <p style="margin-top:1rem"><a class="btn" href="/music--store.html">Listen</a></p>
+        <img src={u("/images/img-3313_1_orig.jpg")} alt="Project Vainiolla Ensemble" width="1000" height="671" loading="lazy" />
+        <p style="margin-top:1rem"><a class="btn" href={u("/music--store.html")}>Listen</a></p>
       </div>
       <div class="justify">
         <h2>PROJECT VAINIOLLA ENSEMBLE</h2>

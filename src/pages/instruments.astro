@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 import Base from '../layouts/Base.astro';
 const awards = [
   ['2019', '<strong>Homebound</strong>, awarded short film by Marika Harjusaari. Next Nordic Generation prize @ Norwegian International Filmfestival Haugesund 2019. National competition, nominee @ Tampere film festival 2020.'],
@@ -16,15 +17,15 @@ const awards = [
     <h2>instruments.</h2>
     <div class="two-col" style="margin-top:2rem">
       <div class="justify">
-        <img src="/images/img-2416_1.jpg" alt="Kantele" width="590" height="393" loading="lazy" style="margin-bottom:1.5rem" />
+        <img src={u("/images/img-2416_1.jpg")} alt="Kantele" width="590" height="393" loading="lazy" style="margin-bottom:1.5rem" />
         <h3>Performance with kantele</h3>
         <p>Palu's main instrument is a 38-stringed concert kantele, a modern version of an ancient Finnish folk instrument that has existed for a few thousand years. Alongside the 38-stringed kantele, Palu performs with a 14-stringed <em>Korpiselän</em> kantele and other types of smaller kanteles.</p>
-        <img src="/images/img-1961_2_orig.jpg" alt="Sarah Palu with harp" width="1100" height="733" loading="lazy" style="margin:2rem 0 1.5rem" />
+        <img src={u("/images/img-1961_2_orig.jpg")} alt="Sarah Palu with harp" width="1100" height="733" loading="lazy" style="margin:2rem 0 1.5rem" />
         <h3>Performance with harp</h3>
         <p>Palu performs with a 34-stringed lever harp.</p>
       </div>
       <div class="justify">
-        <img src="/images/12235114-10206350014124083-588158388387625834-n_1.jpg" alt="Sarah Palu at the piano" width="577" height="769" loading="lazy" style="margin-bottom:1.5rem" />
+        <img src={u("/images/12235114-10206350014124083-588158388387625834-n_1.jpg")} alt="Sarah Palu at the piano" width="577" height="769" loading="lazy" style="margin-bottom:1.5rem" />
         <h3>Composing</h3>
         <p>Palu composes for diverse ensembles and multidisciplinary projects including films, installations, dance and theatre. She also creates music for meditation and therapeutic uses.</p>
         <p>A few selected compositions and awards:</p>

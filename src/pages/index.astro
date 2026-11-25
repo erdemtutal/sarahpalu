@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 import Base from '../layouts/Base.astro';
 const quotes = [
   { q: 'On her debut album Ikivirta Sarah Palu’s set the bar incredibly high for the future. While plenty of albums are tucked away after a week or two, this one sticks around and practically demands to be played, its nooks and corners are slowly discovered. Overall, it’s one of 2020’s absolute gems.', by: 'RootsWorld', href: 'http://www.rootsworld.com/reviews/palu-20.shtml' },
@@ -12,8 +13,8 @@ const quotes = [
   { q: 'Joissain hetkissä riitti muutama pieni yksittäinen Sarah Palun harpulla tai kanteleella äärimmäisen herkästi soittama sointu, ja kylmät väreet kulkivat koko kehon läpi', by: 'Soundi', href: 'https://www.soundi.fi/keikat/ihmisen-aika-on-ohi-mutta-mita-se-opetti-meille-raportti-viitasen-piian-kiertueen-paatoskeikan-tunnelmista/' },
 ];
 ---
-<Base hero="tall" heroImage="/images/906362359.jpg" description="Sarah Palu is a Finnish-French composer and musician. Palu’s main instrument is kantele, a modern version of an ancient Finnish folk instrument that has existed for a few thousand years. Alongside the kantele, she performs with the Celtic harp.">
-  <a slot="hero" href="/music--store.html" style="text-decoration:none">
+<Base hero="tall" heroImage={u("/images/906362359.jpg")} description="Sarah Palu is a Finnish-French composer and musician. Palu’s main instrument is kantele, a modern version of an ancient Finnish folk instrument that has existed for a few thousand years. Alongside the kantele, she performs with the Celtic harp.">
+  <a slot="hero" href={u("/music--store.html")} style="text-decoration:none">
     <h1 class="hero-title">IKIVIRTA<small>album</small></h1>
   </a>
   <section class="quotes">

@@ -32,9 +32,13 @@ npm run build    # writes the site to dist/
 
 The site deploys with `.github/workflows/deploy.yml` on every push to `main`, and every morning (so the calendar stays current).
 
-One-time setup:
-1. In the repo, go to **Settings > Pages** and set **Source** to **GitHub Actions**.
-2. Merge to `main`. The first deploy appears at `https://erdemtutal.github.io/sarahpalu/` (links and images will look broken there, because the site expects to live at the domain root; that is normal until the domain is connected).
-3. When ready to go live, follow the domain steps in the migration plan (`www.sarahpalu.com` is set in `public/CNAME`). Then tick **Enforce HTTPS** in Settings > Pages.
+One-time setup: in the repo, go to **Settings > Pages** and set **Source** to **GitHub Actions**.
+
+**Preview.** Until the domain is connected the site is published at `https://erdemtutal.github.io/sarahpalu/`. The workflow sets `BASE_PATH` and `SITE_URL` for that. All internal links go through `src/lib/url.ts` so they work under any base path.
+
+**Going live on www.sarahpalu.com.**
+1. Delete the `env:` block (`BASE_PATH`, `SITE_URL`) from `deploy.yml` and merge. The site is then built for the domain root.
+2. In Settings > Pages, set **Custom domain** to `www.sarahpalu.com`, and point the DNS records at GitHub (see the migration plan). Keep the MX (email) records.
+3. Tick **Enforce HTTPS** once the DNS check passes.
 
 Pull requests run `.github/workflows/check.yml`, which just makes sure the site builds.
