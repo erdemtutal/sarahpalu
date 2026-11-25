@@ -1,0 +1,28 @@
+---
+import { u } from '../lib/url';
+import Base from '../layouts/Base.astro';
+const quotes = [
+  { q: 'On her debut album Ikivirta Sarah Palu’s set the bar incredibly high for the future. While plenty of albums are tucked away after a week or two, this one sticks around and practically demands to be played, its nooks and corners are slowly discovered. Overall, it’s one of 2020’s absolute gems.', by: 'RootsWorld', href: 'http://www.rootsworld.com/reviews/palu-20.shtml' },
+  { q: 'Finnish-French composer-musician Sarah Palu touches a deep chord in the soul with her début album Ikivirta. It is a journey through soundscapes featuring a multitude of musical influences, but always connected by a scarlet thread', by: 'FMQ Magazine', href: 'https://fmq.fi/articles/sarah-palu-reflected-music' },
+  { q: 'Lägg namnet Sarah Palu på minnet. Det här är en av de bästa debutskivor jag hört på länge. Är begreppet ASMR-musik bekant, musik som framkallar en charmigt kittlande känsla av välbehag i kroppen? Finsk-franska Sarah Palus debutalbum Ikivirta är just sädan musik. Musiken är smeksam men stark, man mår helt enkelt bra av att lyssna till den', by: 'Huvudstadsbladet', href: 'https://www.hbl.fi/artikel/kantele-moter-minimalism-i-stralande-debut/' },
+  { q: 'Sarah Palun sävellyksissä muinainen suomalainen kansanmusiikki yhdistyy sulavasti popin, elektronisen musiikin ja klassisen nykymusiikin kanssa', by: 'Kainuun Sanomat', href: 'https://www.kainuunsanomat.fi/artikkeli/joko-olet-kuullut-sarah-palusta-esikoislevynsa-julkaisevan-saveltaja-muusikon-sukujuuret-ovat-kuhmossa-178896825/' },
+  { q: 'Ikivirran vietäväksi jättäytyminen on kerta kaikkiaan ihanaa. Levy on kuuntelukokemuksena virkistävä, rentouttavakin. Ennen kaikkea levy on kaunis. Eteerisen ja maanläheisen yhdistelmä tekee Ikivirrasta todella mielenkiintoista, erottuvaa musiikkia.', by: 'Keskipohjanmaa', href: 'https://www.keskipohjanmaa.fi/uutinen/593167' },
+  { q: 'I listened to Ikivirta for the first time while walking in a forest. I started to cry instantly. This is how our nature sounds. How can she convert the beauty and the unique atmosphere of our forests into music? Put this album on, close your eyes and smell the forest flowers. You might want to stay there.', by: 'GEA / Global Texan Chronicles', href: 'https://globaltexanchronicles.com/gea/' },
+  { q: 'Sarah Palun ote yleisöön on yhtä herkkä kuin on hänen suuren suosion saavuttanut musiikkinsakin.', by: 'Kansanmusiikki, 4.2021' },
+  { q: 'Sarah Palu löi heti läpi esikoisalbumillaan. Ikivirta on ollut arvostelu- ja kuuntelijamenestys', by: 'Länsiväylä', href: 'https://www.lansivayla.fi/paikalliset/4360988' },
+  { q: 'Joissain hetkissä riitti muutama pieni yksittäinen Sarah Palun harpulla tai kanteleella äärimmäisen herkästi soittama sointu, ja kylmät väreet kulkivat koko kehon läpi', by: 'Soundi', href: 'https://www.soundi.fi/keikat/ihmisen-aika-on-ohi-mutta-mita-se-opetti-meille-raportti-viitasen-piian-kiertueen-paatoskeikan-tunnelmista/' },
+];
+---
+<Base hero="tall" heroImage={u("/images/906362359.jpg")} description="Sarah Palu is a Finnish-French composer and musician. Palu’s main instrument is kantele, a modern version of an ancient Finnish folk instrument that has existed for a few thousand years. Alongside the kantele, she performs with the Celtic harp.">
+  <a slot="hero" href={u("/music--store.html")} style="text-decoration:none">
+    <h1 class="hero-title">IKIVIRTA<small>album</small></h1>
+  </a>
+  <section class="quotes">
+    {quotes.map((x) => (
+      <blockquote>
+        “{x.q}”
+        <cite>{x.href ? <a href={x.href} rel="noopener">{x.by}</a> : x.by}</cite>
+      </blockquote>
+    ))}
+  </section>
+</Base>

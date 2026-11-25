@@ -1,0 +1,38 @@
+---
+import { u } from '../lib/url';
+import Base from '../layouts/Base.astro';
+---
+<Base title="Bio" cream hero="mid" heroImage={u("/images/2141926859.jpg")} description="Sarah Palu (b. 1991) is a Finnish-French composer and musician. Palu’s main instrument is kantele, a modern version of an ancient Finnish folk instrument. Alongside the kantele, she performs with the Celtic harp.">
+  <div slot="hero" class="poem">
+    <p class="l1">Music is a path</p>
+    <p class="l2">to what is yet unknown</p>
+    <p class="l3">to the ocean of the subconscious,<br />intuition and hidden emotions</p>
+    <p class="l4">to love within and connection beyond borders</p>
+    <p class="l5">and to the ever-present silence<br /><span class="sig">–Sarah Palu</span></p>
+  </div>
+
+  <section class="section wrap">
+    <div class="two-col">
+      <img src={u("/images/img-2584-kopio_1.jpg")} alt="Sarah Palu with kantele" width="556" height="833" loading="lazy" />
+      <div class="justify">
+        <h2>BIO</h2>
+        <p><strong>Sarah Palu</strong> (b. 1991) is a Finnish-French composer and musician. Palu composes for diverse ensembles and multidisciplinary projects including films, installations, dance and theatre. For Palu, music creation is, above all, an inquiry into the nature of existence, human experience and consciousness. Her composing process is often a playful dialogue between rational mind and intuition, both taking turns in leading the creation. Palu's music draws its inspiration from a diverse collection of genres, varying from ancient Finnish folk music and minimalism to electronic, pop and contemporary classical music.</p>
+        <p>Palu's main instrument is <strong>kantele</strong>, a modern version of an ancient Finnish folk instrument that has existed for a few thousand years. The timeless, rich and bright sound of the instrument has marked the artist profoundly and she has spent over twenty years immersing herself in it, moreover, performing and creating her own unique touch on the instrument. Alongside the kantele, she performs with the Celtic harp, voice and body.</p>
+        <p>Sarah Palu's debut album <strong><a href={u("/music--store.html")}>Ikivirta</a></strong> was released on the 12th of March, 2020. The praised album was nominated for EMMA prize / Best Finnish Folk Music Album, reached top 20 on World Music Charts Europe and top 10 on Roots Music Report USA.</p>
+        <p>In addition to her solo projects, Palu collaborates with artists of different fields and is a band member in <a href="https://www.viitasenpiia.com" rel="noopener">Viitasen Piia</a>. Sarah Palu studied music in distinguished Sibelius Academy of Helsinki and graduated with a <strong>Master of Music</strong> degree in 2022.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="two-col">
+      <div class="justify">
+        <h3>Another side of the artist</h3>
+        <p>“In addition to music, I enjoy and practice a myriad of other fields, the essence of which is formed by elaborate sensing. For instance, I work with sleep and dreams, dance, movement and meditation, as I consider sensitive listening to the wisdom of the human body as one of the key elements in growth and healing. On the other hand, the mind is vivid and in need of perpetual incentives; thus philosophy, writing and visual arts also play an important part in my life. The mind and the body will not strive without the balance of both sociability and serenity, extending the crucial need for listening beyond the aforementioned to other beings and nature as well.</p>
+        <p>As an artist, I am open towards new encounters and collaborations – I am always looking forward to fresh ideas and ways of experiencing. What is there, yet beyond our understanding, that we could explore together?” –Sarah Palu</p>
+      </div>
+      <img src={u("/images/img-5677_orig.jpg")} alt="Sarah Palu in nature" width="750" height="1000" loading="lazy" />
+    </div>
+    <p class="credit" style="margin-top:3rem">Picture with kantele by <strong>Pietari Purovaara</strong>, picture in nature by <strong>Matias Tyni</strong> and picture in header by <strong>Iiris Heikka</strong>.</p>
+  </section>
+</Base>

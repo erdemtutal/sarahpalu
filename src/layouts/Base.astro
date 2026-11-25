@@ -1,0 +1,79 @@
+---
+import '@fontsource/montserrat/300.css';
+import '@fontsource/montserrat/400.css';
+import '@fontsource/montserrat/500.css';
+import '@fontsource/montserrat/700.css';
+import '@fontsource/playfair-display/400-italic.css';
+import '@fontsource/playfair-display/700-italic.css';
+import '@fontsource/playfair-display/400.css';
+import '@fontsource-variable/nunito-sans';
+import '../styles/global.css';
+import { u, baseUrl } from '../lib/url';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** 'band' = taupe gradient header; 'tall'/'mid' = photo hero */
+  hero?: 'band' | 'tall' | 'mid';
+  heroImage?: string;
+  cream?: boolean;
+  image?: string;
+}
+const { title, description = 'Sarah Palu is a Finnish-French composer and kantele artist.', hero = 'band', heroImage, cream = false, image = '/images/img-5677_orig.jpg' } = Astro.props;
+const site = 'SARAH PALU';
+const fullTitle = title ? `${title} | Sarah Palu` : 'Sarah Palu: Finnish-French composer and kantele artist';
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const nav = [
+  ['Home', '/'], ['Bio', '/bio.html'], ['Music & Store', '/music--store.html'],
+  ['Calendar', '/calendar.html'], ['Contact', '/contact.html'], ['Gallery', '/gallery.html'],
+];
+const here = (Astro.url.pathname.slice(baseUrl.length) || '/').replace(/\/index\.html$/, '/');
+const isCurrent = (href: string) => here === href || (href !== '/' && here === href.replace('.html', ''));
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(u(image), Astro.site).toString()} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class={cream ? 'cream' : ''}>
+    <header class="site-header">
+      <div class="bar">
+        <a class="logo" href={u('/')}>{site}</a>
+        <button class="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+        <nav class="nav" id="nav" aria-label="Main">
+          {nav.map(([label, href]) => <a href={u(href)} aria-current={isCurrent(href) ? 'page' : undefined}>{label}</a>)}
+        </nav>
+      </div>
+    </header>
+
+    <div class={`hero ${hero}`} style={heroImage ? `background-image:url(${heroImage})` : undefined}>
+      <div class="inner"><slot name="hero" /></div>
+    </div>
+
+    <main><slot /></main>
+
+    <footer class="site-footer">
+      <div class="social">
+        <a href="https://www.facebook.com/sarahpalumusic/" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/sarah.palu/" rel="noopener">Instagram</a>
+        <a href="https://sarahpalu.bandcamp.com/releases" rel="noopener">Bandcamp</a>
+      </div>
+      © {new Date().getFullYear()} Sarah Palu
+    </footer>
+
+    <script is:inline>
+      const b = document.querySelector('.menu-btn'), n = document.getElementById('nav');
+      b.addEventListener('click', () => { const o = n.classList.toggle('open'); b.setAttribute('aria-expanded', o); });
+    </script>
+  </body>
+</html>
