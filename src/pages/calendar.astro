@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import events from '../data/calendar.json';
+// Events are split into upcoming / past at BUILD time using each event's end date.
+// To add an event: append { "date": "YYYY-MM-DD" (end date), "html": "text with <a href> links" } to src/data/calendar.json.
+const today = new Date().toISOString().slice(0, 10);
+const upcoming = events.filter((e) => e.date >= today).sort((a, b) => a.date.localeCompare(b.date));
+const past = events.filter((e) => e.date < today).sort((a, b) => b.date.localeCompare(a.date));
+---
+<Base title="Calendar" description="Upcoming concerts and events with Sarah Palu.">
+  <section class="section wrap" style="max-width:860px">
+    <div class="two-col cal-grid">
+      <div>
+        <h2>UPCOMING.</h2>
+        {upcoming.length
+          ? <ul class="cal-list">{upcoming.map((e) => <li><Fragment set:html={e.html} /></li>)}</ul>
+          : <p>No upcoming events at the moment. Follow on <a href="https://www.facebook.com/sarahpalumusic/">Facebook</a> or <a href="https://www.instagram.com/sarah.palu/">Instagram</a> for news.</p>}
+        <h2>PAST.</h2>
+        <ul class="cal-list past">{past.map((e) => <li><Fragment set:html={e.html} /></li>)}</ul>
+        <p>etc.</p>
+      </div>
+      <div>
+        <img src="/images/ed8a4349-recovered-1_orig.jpg" alt="Sarah Palu" width="800" height="1200" loading="lazy" />
+        <p class="credit" style="margin-top:.6rem">Picture by <strong>Iiris Heikka</strong></p>
+      </div>
+    </div>
+  </section>
+</Base>

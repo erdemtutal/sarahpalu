@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import photos from '../data/gallery.json';
+---
+<Base title="Gallery" description="Photos of Sarah Palu, kantele player and composer.">
+  <section class="section wrap">
+    <h2>Gallery.</h2>
+    <div class="gallery" id="gallery">
+      {photos.map((p, i) => (
+        <button type="button" data-i={i} aria-label={`Open photo ${i + 1}`}>
+          <img src={p.src} alt={p.alt} width={p.w} height={p.h} loading="lazy" />
+        </button>
+      ))}
+    </div>
+    <p class="credit" style="margin-top:2rem">Photos 1 and 8 <strong>Ida Stenros</strong>, 4 <strong>Kirsi Ihalainen</strong>, 6 <strong>Jorma Airola</strong>, 7, 13, 17 and 19 <strong>Oskari Järvinen</strong>, 12 <strong>Matias Tyni</strong>, 16 <strong>Luisa Sovijärvi</strong>, 20 <strong>Pietari Purovaara</strong>, 21 <strong>Pauli Araneva</strong>, 22 <strong>warila.fi</strong>.</p>
+  </section>
+
+  <dialog class="lightbox" id="lb">
+    <button class="lb-close" aria-label="Close">×</button>
+    <button class="lb-btn lb-prev" aria-label="Previous">‹</button>
+    <img alt="" />
+    <button class="lb-btn lb-next" aria-label="Next">›</button>
+  </dialog>
+
+  <script is:inline>
+    const imgs = [...document.querySelectorAll('#gallery img')];
+    const lb = document.getElementById('lb'), big = lb.querySelector('img');
+    let cur = 0;
+    const show = (i) => { cur = (i + imgs.length) % imgs.length; big.src = imgs[cur].src; big.alt = imgs[cur].alt; };
+    document.getElementById('gallery').addEventListener('click', (e) => {
+      const b = e.target.closest('button'); if (!b) return; show(+b.dataset.i); lb.showModal();
+    });
+    lb.querySelector('.lb-close').onclick = () => lb.close();
+    lb.querySelector('.lb-prev').onclick = () => show(cur - 1);
+    lb.querySelector('.lb-next').onclick = () => show(cur + 1);
+    lb.addEventListener('click', (e) => { if (e.target === lb) lb.close(); });
+    document.addEventListener('keydown', (e) => { if (!lb.open) return; if (e.key === 'ArrowLeft') show(cur - 1); if (e.key === 'ArrowRight') show(cur + 1); });
+  </script>
+</Base>
