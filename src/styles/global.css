@@ -103,7 +103,22 @@ body.cream .site-header.scrolled { background: var(--cream); }
 /* layout helpers */
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
 .two-col.flip > :first-child { order: 2; }
-.two-col.cal-grid { grid-template-columns: 2fr 1fr; }
+.two-col.cal-grid { grid-template-columns: 1.15fr 1fr; gap: 56px; }
+/* Side-by-side media cards: titles, subtitles, media and buttons line up across the two columns */
+.pair { display: grid; grid-template-columns: 1fr 1fr; column-gap: 64px; row-gap: 0; align-items: start; }
+.pair > .card { display: grid; grid-template-rows: subgrid; grid-row: span 4; }
+.pair .media { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #000; }
+.pair .media > iframe, .pair .media > img, .pair .media > a, .pair .media > div { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.pair .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pair .media a { display: block; }
+.pair .media img.left { object-position: 10% 50%; }
+.pair .actions { grid-row: 4; text-align: center; margin: 1.1rem 0 0; }
+.pair .media { grid-row: 3; }
+.pair .card h3 { grid-row: 1; }
+.pair .card .sub { grid-row: 2; }
+.pair .media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.pair .card h3 { font-size: .85rem; letter-spacing: .1em; margin: 0 0 .6rem; line-height: 1.5; align-self: start; }
+.pair .card .sub { margin: 0 0 1.1rem; }
 .embed { position: relative; aspect-ratio: 16 / 9; margin: 1.5rem 0; }
 .embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .spotify iframe { width: 100%; border: 0; border-radius: 12px; }
@@ -140,6 +155,8 @@ dialog.lightbox img { max-width: 94vw; max-height: 90vh; object-fit: contain; }
   body.cream .site-header.scrolled .nav { background: var(--cream); }
   .nav a[aria-current='page'] { background: color-mix(in srgb, var(--hdr-fg) 12%, transparent); }
   .two-col, .two-col.cal-grid { grid-template-columns: 1fr; gap: 28px; }
+  .pair { grid-template-columns: 1fr; }
+  .pair > .card { margin-bottom: 2.4rem; }
   .two-col.flip > :first-child { order: 0; }
   .gallery { columns: 2; }
   .hero-title { left: 50%; top: 52%; letter-spacing: .18em; }
