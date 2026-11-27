@@ -9,7 +9,7 @@ const upcoming = events.filter((e) => e.date >= today).sort((a, b) => a.date.loc
 const past = events.filter((e) => e.date < today).sort((a, b) => b.date.localeCompare(a.date));
 ---
 <Base title="Calendar" description="Upcoming concerts and events with Sarah Palu.">
-  <section class="section wrap" style="max-width:860px">
+  <section class="section wrap">
     <div class="two-col cal-grid">
       <div>
         <h2>UPCOMING.</h2>
@@ -21,9 +21,9 @@ const past = events.filter((e) => e.date < today).sort((a, b) => b.date.localeCo
         <p>etc.</p>
       </div>
       <div>
-        <img src={u("/images/ed8a4349-recovered-1_orig.jpg")} alt="Sarah Palu" width="800" height="1200" loading="lazy" />
-        <p class="credit" style="margin-top:.6rem">Picture by <strong>Iiris Heikka</strong></p>
+        <img src={u("/images/ed8a4349-recovered-1_orig.jpg")} alt="Sarah Palu" width="1333" height="2000" loading="lazy" />
       </div>
     </div>
+    <p class="credit credits">Picture by <strong>Iiris Heikka</strong></p>
   </section>
 </Base>
