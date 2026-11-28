@@ -25,11 +25,6 @@ jobs:
       - uses: withastro/action@v3
         with:
           node-version: 22
-        env:
-          # PREVIEW ONLY: the site is published at erdemtutal.github.io/sarahpalu until the
-          # domain is connected. When going live on www.sarahpalu.com, delete these two lines.
-          BASE_PATH: /sarahpalu
-          SITE_URL: https://erdemtutal.github.io
 
   deploy:
     needs: build

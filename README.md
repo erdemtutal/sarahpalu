@@ -34,11 +34,8 @@ The site deploys with `.github/workflows/deploy.yml` on every push to `main`, an
 
 One-time setup: in the repo, go to **Settings > Pages** and set **Source** to **GitHub Actions**.
 
-**Preview.** Until the domain is connected the site is published at `https://erdemtutal.github.io/sarahpalu/`. The workflow sets `BASE_PATH` and `SITE_URL` for that. All internal links go through `src/lib/url.ts` so they work under any base path.
+**Live site.** The site is built for `https://www.sarahpalu.com/` (domain root). Before go-live it was previewed at `erdemtutal.github.io/sarahpalu` using `BASE_PATH` and `SITE_URL` env variables in the workflow; all internal links still go through `src/lib/url.ts`, so a preview under a base path can be done again if needed.
 
-**Going live on www.sarahpalu.com.**
-1. Delete the `env:` block (`BASE_PATH`, `SITE_URL`) from `deploy.yml` and merge. The site is then built for the domain root.
-2. In Settings > Pages, set **Custom domain** to `www.sarahpalu.com`, and point the DNS records at GitHub (see the migration plan). Keep the MX (email) records.
-3. Tick **Enforce HTTPS** once the DNS check passes.
+**Domain.** Custom domain `www.sarahpalu.com` is set in Settings > Pages (`public/CNAME` records it too). DNS: four `A` records for the bare domain (`185.199.108.153`, `.109.153`, `.110.153`, `.111.153`) and a `CNAME` for `www` pointing to `erdemtutal.github.io`. Keep the Google MX records (email).
 
 Pull requests run `.github/workflows/check.yml`, which just makes sure the site builds.
